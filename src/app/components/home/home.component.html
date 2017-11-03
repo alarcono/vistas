@@ -1,0 +1,9 @@
+<p>
+  Buscar productos
+</p>
+
+<form #form="ngForm" (ngSubmit)="logForm(form.value)">
+  <label>Buscar:</label>
+  <input type="text" name="keyword" ngModel>
+  <button type="submit">Submit</button>
+</form>
