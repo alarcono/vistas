@@ -10,6 +10,8 @@ import 'rxjs/add/operator/map';
 })
 export class HomeComponent implements OnInit {
 
+  results:any;
+
   constructor(
     private http: Http
   ) { }
@@ -22,7 +24,7 @@ export class HomeComponent implements OnInit {
     let keyword = JSON.stringify(value);
     let url = 'http://localhost/webService/productos/search/'+keyword;
     this.http.get(url).map(res => res.json()).subscribe(data => {
-
+                this.results = data;
                 console.log(data);
 
             });
