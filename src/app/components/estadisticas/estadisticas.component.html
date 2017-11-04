@@ -1,0 +1,14 @@
+<p>
+  estadisticas
+</p>
+
+<div class="card-group" *ngFor="let producto of productos">
+ <div class="card">
+   <img class="card-img-top" [src] ="producto.imagen" alt="Card image cap">
+   <div class="card-body">
+     <h4 class="card-title">{{producto.titulo}}</h4>
+     <p class="card-text">{{producto.descripcion}}</p>
+     <p class="card-text" *ngFor="let keyword of producto.keywords"><small class="text-muted"> {{keyword.palabra}}</small></p>
+   </div>
+ </div>
+</div>
