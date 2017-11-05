@@ -16,7 +16,7 @@ export class EstadisticasComponent implements OnInit {
 
   ) {
 
-    let url = 'http://localhost/webService/productos/popularProducts';
+    let url = 'https://pruebasvista.herokuapp.com/productos/popularProducts';
     this.http.get(url).map(res => res.json()).subscribe(data => {
                 if(data.error == true){
                   this.productos = data;
