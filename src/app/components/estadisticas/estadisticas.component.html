@@ -1,10 +1,12 @@
 <hr>
 <h1>
-  Productos más bucados : 
+  Productos más buscados :
 </h1>
 <hr>
-
-<div class="card-columns">
+<div *ngIf="error">
+    {{results.mensaje}}
+</div>
+<div class="card-columns" *ngIf="!error">
   <div class="card" *ngFor="let producto of productos">
     <img class="card-img-top" [src] ="producto.imagen"  alt="Card image cap">
     <div class="card-body">

@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   keywordForm:any;
   results:any;
   valid:boolean;
+  error:boolean;
 
   constructor(
     private http: Http
@@ -35,8 +36,16 @@ export class HomeComponent implements OnInit {
       let keyword = JSON.stringify(value.value);
       let url = 'http://localhost/webService/productos/search/'+keyword;
       this.http.get(url).map(res => res.json()).subscribe(data => {
-                  this.results = data;
-                  console.log(data);
+                      if(data.error == true){
+                        this.results = data;
+                        this.error = true;
+
+                      }
+                      else{
+                        this.results = data.results;
+                        this.error = false; 
+
+                      }
 
               });
     }

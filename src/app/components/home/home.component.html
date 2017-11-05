@@ -7,11 +7,13 @@
 <form #form="ngForm" class="form-inline my-2 my-lg-0 row" (ngSubmit)="logForm(form)" validate>
   <input class="form-control mr-sm-2"  name="keyword"  type="search" placeholder="Ingrese palabra" aria-label="Buscar" ngModel required>
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-  <div *ngIf="!valid"> Campo obligatorio </div>
+  <div *ngIf="!valid"> Debe ingresar palabra </div>
 </form>
-
 <hr>
-<div class="card-columns">
+<div *ngIf="error">
+    {{results.mensaje}}
+</div>
+<div class="card-columns" *ngIf="!error">
   <div class="card" *ngFor="let result of results">
     <img class="card-img-top" [src] ="result.imagen"  alt="Card image cap">
     <div class="card-body">

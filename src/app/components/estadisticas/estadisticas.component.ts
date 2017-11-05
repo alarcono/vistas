@@ -10,6 +10,7 @@ import 'rxjs/add/operator/map';
 export class EstadisticasComponent implements OnInit {
 
   productos:any;
+  error:boolean;
   constructor(
     private http: Http
 
@@ -17,7 +18,16 @@ export class EstadisticasComponent implements OnInit {
 
     let url = 'http://localhost/webService/productos/popularProducts';
     this.http.get(url).map(res => res.json()).subscribe(data => {
-                this.productos = data;
+                if(data.error == true){
+                  this.productos = data;
+                  this.error = true;
+
+                }
+                else{
+                  this.productos = data.results;
+                  this.error = false;
+
+                }
                 console.log(data);
             });
   }
