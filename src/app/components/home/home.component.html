@@ -1,22 +1,21 @@
-<p>
+<hr>
+<h1>
   Buscar productos
-</p>
+</h1>
+<hr>
 
-<form #form="ngForm" (ngSubmit)="logForm(form.value)">
-  <label>Buscar:</label>
-  <input type="text" name="keyword" ngModel>
-  <button type="submit">Submit</button>
+<form #form="ngForm" class="form-inline my-2 my-lg-0 row" (ngSubmit)="logForm(form)" validate>
+  <input class="form-control mr-sm-2"  name="keyword"  type="search" placeholder="Ingrese palabra" aria-label="Buscar" ngModel required>
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+  <div *ngIf="!valid"> Campo obligatorio </div>
 </form>
 
-
-
- <div class="card-group" *ngFor="let result of results">
-  <div class="card">
-    <img class="card-img-top" [src] ="result.imagen" alt="Card image cap">
+<hr>
+<div class="card-columns">
+  <div class="card" *ngFor="let result of results">
+    <img class="card-img-top" [src] ="result.imagen"  alt="Card image cap">
     <div class="card-body">
       <h4 class="card-title">{{result.titulo}}</h4>
-      <p class="card-text">{{result.descripcion}}</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
   </div>
 </div>

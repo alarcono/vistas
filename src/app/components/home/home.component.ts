@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -10,24 +10,37 @@ import 'rxjs/add/operator/map';
 })
 export class HomeComponent implements OnInit {
 
+  keywordForm:any;
   results:any;
+  valid:boolean;
 
   constructor(
     private http: Http
-  ) { }
-
-  ngOnInit() {
+  ) {
+      this.valid = true;
   }
 
-  logForm(value: any) {
-    console.log(value);
-    let keyword = JSON.stringify(value);
-    let url = 'http://localhost/webService/productos/search/'+keyword;
-    this.http.get(url).map(res => res.json()).subscribe(data => {
-                this.results = data;
-                console.log(data);
+  ngOnInit() {
 
-            });
+}
+
+
+  logForm(value: any) {
+
+    if(value.invalid){ // si el formulario no es válido
+      this.valid = false;
+    }
+    else{
+      this.valid = true;
+      let keyword = JSON.stringify(value.value);
+      let url = 'http://localhost/webService/productos/search/'+keyword;
+      this.http.get(url).map(res => res.json()).subscribe(data => {
+                  this.results = data;
+                  console.log(data);
+
+              });
+    }
+
   }
 
 }
