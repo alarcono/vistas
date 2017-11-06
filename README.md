@@ -21,3 +21,8 @@ Abrir en el navegador http://localhost:4200
 
 Debido a que las pruebas para este repositorio están apuntando a localhost , es necesario también clonar el repositorio que aloja el webService
 ( https://github.com/alarcono/webService ) y por ende la base de datos que allí se especifica.
+
+
+## Otros
+
+La aplicación está disponible en https://appvistas.herokuapp.com/ 
