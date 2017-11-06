@@ -28,7 +28,7 @@ export class EstadisticasComponent implements OnInit {
                   this.error = false;
 
                 }
-                console.log(data);
+                //console.log(data);
             });
   }
 
