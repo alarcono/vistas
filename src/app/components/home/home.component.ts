@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
     else{
       this.valid = true;
       let keyword = JSON.stringify(value.value);
-      let url = 'http://localhost/productos/search/'+keyword;
+      let url = 'http://localhost/webService/productos/search/'+keyword;
       this.http.get(url).map(res => res.json()).subscribe(data => {
                       if(data.error == true){
                         this.results = data;
