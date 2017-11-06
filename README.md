@@ -14,8 +14,8 @@ Abrir en el navegador http://localhost:4200
 
 ## Vistas
 
-Home : busca productos según la palabra ingresada
-Estadísticas : muestra los 20 productos más buscados y para cada uno las 5 palabras más usadas.
+- Home : busca productos según la palabra ingresada
+- Estadísticas : muestra los 20 productos más buscados y para cada uno las 5 palabras más usadas.
 
 ## Consideraciones
 
